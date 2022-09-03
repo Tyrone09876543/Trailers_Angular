@@ -10,11 +10,11 @@ nav{
     top: 0;
 }
 .nav-separator, nav{
-    height: 70px;
+    height: 65px;
     width: 100%;
 }
 nav img{
-    height: 42px;
+    height: 40px;
 }
 nav ul{
     font-weight: 500;
@@ -33,11 +33,13 @@ nav ul a .icon{
 }
 nav ul a:hover,nav ul li .active{
     color: #1F51FF;
+    font-size: 19px;
 }
 nav ul li{
     color: var(--gray-lighter);
     display: flex;
     margin: 0 10px;
+    align-items: center;
 }
 @media (max-width: 800px) {
     nav{

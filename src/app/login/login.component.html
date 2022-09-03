@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="form-container">
+        <div class="top">
+            <div (click)="toLogin()" [ngClass]="login ? '' : 'hide'"><span>Login</span></div>
+            <div (click)="toRegister()" [ngClass]="login ? 'hide' : ''"><span>Register</span></div>
+        </div>
+        <div class="bottom">
+            <input type="text" placeholder="Username">
+            <p class="danger"></p>
+            <input type="text" placeholder="Password">
+            <p class="danger"></p>
+            <input type="text" placeholder="Confirm password" [ngClass]="login ? 'hide' : ''">
+            <p class="danger" [ngClass]="login ? 'hide' : ''"></p>
+            <input type="text" placeholder="First name" [ngClass]="login ? 'hide' : ''">
+            <p class="danger" [ngClass]="login ? 'hide' : ''"></p>
+            <input type="text" placeholder="Last name" [ngClass]="login ? 'hide' : ''">
+            <p class="danger" [ngClass]="login ? 'hide' : ''"></p>
+            <div class="btn login" [ngClass]="login ? '' : 'hide'">
+                <button class="normal-btn">Login</button>
+            </div>
+            <div class="btn" [ngClass]="login ? 'hide' : ''">
+                <button class="normal-btn">Register</button>
+            </div>
+        </div>
+    </div>
+</div>
