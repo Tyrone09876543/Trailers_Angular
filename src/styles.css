@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+:root{
+  --black:hsl(0, 0%, 9%);
+  --gray:hsl(0, 0%, 11%);
+  --gray-lighter: hsl(0, 0%, 75%);
+}
+/*hsl(250, 69%, 61%)*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+    color: white;
+    background: var(--gray);
+    min-height: 100vh;
+}
+
+@media (max-width: 905px) {
+  body{
+    padding-bottom: 0px;
+  }
+}
