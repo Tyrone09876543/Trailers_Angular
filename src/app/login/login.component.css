@@ -9,7 +9,7 @@
     border-radius: 10px;
     background-color: var(--black);
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     overflow: hidden;
     
 }
@@ -33,12 +33,44 @@
 
 .bottom{
     transition: all 0.3s ease;
-
     display: flex;
     flex-direction: column;
-    padding: 40px 20px 0;
+    padding: 20px 20px 0;
 }
-.bottom input{
+
+.input-group{
+    margin: 5px 0;
+    font-size: 18px;
+    color: hsl(0, 0%, 90%);
+}
+.input-group input{
+    all: unset;
+    color: hsl(0, 0%, 70%);
+    width: 100%;
+    padding: 0px 10px;
+    font-size: 16px;
+    background-color: var(--black);
+    border-bottom: 2px solid var(--green);
+    box-sizing: border-box;
+     -webkit-box-sizing:border-box;
+     -moz-box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+.input-group input:focus{
+    border-color: #1F51FF;
+}
+.input-group p{
+    margin-left: 0px;
+}
+.input-group .error{
+    margin-left: 3px;
+    color: red;
+    font-size: 14px;
+}
+.input-group.hide{
+    display: none;
+}
+/* .bottom input{
     all: unset;
     padding: 5px 10px;
     margin: 20px 0;
@@ -55,17 +87,14 @@
     font-size: 20px;
     font-weight: 300;
     color: red;
-}
+} */
 
 .bottom .btn {
     margin: 20px 0;
     display: flex;
     justify-content: center;
 }
-.bottom .btn.login{
-    margin: 60px 0 20px;
 
-}
 .bottom .btn.hide, .bottom input.hide{
     display: none;
 }

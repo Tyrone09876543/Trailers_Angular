@@ -5,17 +5,33 @@
             <div (click)="toRegister()" [ngClass]="login ? 'hide' : ''"><span>Register</span></div>
         </div>
         <div class="bottom">
-            <input type="text" placeholder="Username">
-            <p class="danger"></p>
-            <input type="text" placeholder="Password">
-            <p class="danger"></p>
-            <input type="text" placeholder="Confirm password" [ngClass]="login ? 'hide' : ''">
-            <p class="danger" [ngClass]="login ? 'hide' : ''"></p>
-            <input type="text" placeholder="First name" [ngClass]="login ? 'hide' : ''">
-            <p class="danger" [ngClass]="login ? 'hide' : ''"></p>
-            <input type="text" placeholder="Last name" [ngClass]="login ? 'hide' : ''">
-            <p class="danger" [ngClass]="login ? 'hide' : ''"></p>
-            <div class="btn login" [ngClass]="login ? '' : 'hide'">
+            <div class="input-group">
+                <p>Username:</p>
+                <p class="error"></p>
+                <input type="text">
+            </div>
+            <div class="input-group">
+                <p>Password:</p>
+                <p class="error"></p>
+                <input type="text">
+            </div>
+            <div class="input-group" [ngClass]="login ? 'hide' : ''">
+                <p>Confirm password:</p>
+                <p class="error"></p>
+                <input type="text">
+            </div>
+            <div class="input-group" [ngClass]="login ? 'hide' : ''">
+                <p>First name:</p>
+                <p class="error"></p>
+                <input type="text">
+            </div>
+            <div class="input-group" [ngClass]="login ? 'hide' : ''">
+                <p>Last name:</p>
+                <p class="error"></p>
+                <input type="text">
+            </div>
+           
+            <div class="btn" [ngClass]="login ? '' : 'hide'">
                 <button class="normal-btn">Login</button>
             </div>
             <div class="btn" [ngClass]="login ? 'hide' : ''">
