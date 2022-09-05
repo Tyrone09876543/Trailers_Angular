@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserGuardGuard } from '../user-guard.guard';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor() { }
-
+  guard:UserGuardGuard
+  constructor(private userGuard:UserGuardGuard) { 
+    this.guard = userGuard
+  }
+  
   ngOnInit(): void {
+    console.log(this.guard.logged())
   }
 
 }

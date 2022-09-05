@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { loginResponse } from '../interfaces/api-interface';
+import { CookieService } from 'ngx-cookie-service'
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,7 +22,7 @@ export class LoginComponent implements OnInit{
   });
   isLogin = true;
   confirmedPassword = true;
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService, private cookie:CookieService) { }
   ngOnInit():void{
   }
   confirmPassword(){
@@ -43,12 +45,14 @@ export class LoginComponent implements OnInit{
     
   }
   login(){
-    this.api.login(this.form.value["username"] as string,this.form.value["password"] as string).subscribe(res=>{
+    this.api.login(this.form.value["username"],this.form.value["password"]).subscribe(res=>{
       if (!res["ok"]){
         console.log(res)
         this.response = res;
         return;
       }
+      this.cookie.set('token',res["token"]);
+      this.cookie.set('user',res["user"]);
     });
   }
   register(){
