@@ -1,42 +1,48 @@
 <div class="container">
-    <div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="top">
-            <div (click)="toLogin()" [ngClass]="login ? '' : 'hide'"><span>Login</span></div>
-            <div (click)="toRegister()" [ngClass]="login ? 'hide' : ''"><span>Register</span></div>
+            <div (click)="toLogin()" [ngClass]="isLogin ? '' : 'hide'"><span>Login</span></div>
+            <div (click)="toRegister()" [ngClass]="isLogin ? 'hide' : ''"><span>Register</span></div>
         </div>
         <div class="bottom">
             <div class="input-group">
-                <p>Username:</p>
-                <p class="error"></p>
-                <input type="text">
+                <p class="error" *ngFor="let error of response?.non_field_errors">{{error}}</p>
+                <p>Username*:</p>
+                <p *ngIf="formControls.username.invalid && formSubmitAttempt" class="error">This field is required</p>
+                <p class="error" *ngFor="let error of response?.username">{{error}}</p>
+                <input type="text" formControlName="username">
             </div>
             <div class="input-group">
-                <p>Password:</p>
-                <p class="error"></p>
-                <input type="text">
+                <p>Password*:</p>
+                <p *ngIf="formControls.password.invalid && formSubmitAttempt" class="error" >Password is required</p>
+                <p class="error" *ngFor="let error of response?.password">{{error}}</p>
+                <input type="password" formControlName="password" (input)="confirmPassword()">
             </div>
-            <div class="input-group" [ngClass]="login ? 'hide' : ''">
+            <div class="input-group" [ngClass]="isLogin ? 'hide' : ''">
                 <p>Confirm password:</p>
-                <p class="error"></p>
-                <input type="text">
+                <p class="error" *ngIf="confirmedPassword == false">Password doesn't match</p>
+                <input type="password" formControlName="confirm" (input)="confirmPassword()">
             </div>
-            <div class="input-group" [ngClass]="login ? 'hide' : ''">
+            <div class="input-group" [ngClass]="isLogin ? 'hide' : ''">
+                <p>Email:</p>
+                <p class="error" *ngFor="let error of response?.email">{{error}}</p>
+                <input type="text" formControlName="email">
+            </div>
+            <div class="input-group" [ngClass]="isLogin ? 'hide' : ''">
                 <p>First name:</p>
-                <p class="error"></p>
-                <input type="text">
+                <p class="error" *ngFor="let error of response?.first_name">{{error}}</p>
+                <input type="text" formControlName="firstName">
             </div>
-            <div class="input-group" [ngClass]="login ? 'hide' : ''">
+            <div class="input-group" [ngClass]="isLogin ? 'hide' : ''">
                 <p>Last name:</p>
-                <p class="error"></p>
-                <input type="text">
+                <p class="error" *ngFor="let error of response?.last_name">{{error}}</p>
+                <input type="text" formControlName="lastName">
             </div>
            
-            <div class="btn" [ngClass]="login ? '' : 'hide'">
-                <button class="normal-btn">Login</button>
+            <div class="btn">
+                <button type ="submit"class="normal-btn" >{{isLogin ? "Login" : "Register"}}</button>
             </div>
-            <div class="btn" [ngClass]="login ? 'hide' : ''">
-                <button class="normal-btn">Register</button>
-            </div>
+
         </div>
-    </div>
+    </form>
 </div>
