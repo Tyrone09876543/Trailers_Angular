@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map } from 'rxjs/operators';
-import { loginResponse } from './interfaces/api-interface';
+import { loginResponse, getUserResponse } from './interfaces/api-interface';
 
 @Injectable()
 export class ApiService {
@@ -21,5 +21,9 @@ export class ApiService {
       "first_name":data["first_name"],
       "last_name":data["last_name"]
     });
+  }
+  getUser(token){
+    const headers= new HttpHeaders().set("Authorization", "Token "+token)
+    return this.http.get<getUserResponse>(this.url+'login/update-user/',{ 'headers': headers });
   }
 }

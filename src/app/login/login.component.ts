@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { loginResponse } from '../interfaces/api-interface';
-import { CookieService } from 'ngx-cookie-service'
+import { CookieService } from 'ngx-cookie-service';
 import {Router} from "@angular/router";
 
 @Component({

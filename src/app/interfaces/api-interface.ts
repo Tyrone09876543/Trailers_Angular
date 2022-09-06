@@ -9,3 +9,10 @@ export interface loginResponse {
     last_name:        string;
     token:            string;
 }
+export interface getUserResponse {
+    ok:               boolean;
+    username:         string;
+    email:            string;
+    first_name:       string;
+    last_name:        string;
+}

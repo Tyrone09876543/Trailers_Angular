@@ -1,27 +1,33 @@
 <div class="container">
-    <div class="form-container">
+    <form [formGroup]="form">
         <div class="top">
             <div><span>My account</span></div>
         </div>
         <div class="bottom">
             <div class="input-group">
+                <p class="error" *ngFor="let error of registerResponse?.non_field_errors">{{error}}</p>
                 <p>Username:</p>
-                <p class="error"></p>
-                <input type="text">
+                <p *ngIf="formControls.username.invalid" class="error">This field is required</p>
+                <p class="error" *ngFor="let error of registerResponse?.username">{{error}}</p>
+                <input type="text" formControlName="username">
             </div>
-            
+            <div class="input-group">
+                <p>Email:</p>
+                <p class="error" *ngFor="let error of registerResponse?.email">{{error}}</p>
+                <input type="text" formControlName="email">
+            </div>
             <div class="input-group">
                 <p>First name:</p>
-                <p class="error"></p>
-                <input type="text">
+                <p class="error" *ngFor="let error of registerResponse?.first_name">{{error}}</p>
+                <input type="text" formControlName="firstName">
             </div>
             <div class="input-group">
                 <p>Last name:</p>
-                <p class="error"></p>
-                <input type="text">
+                <p class="error" *ngFor="let error of registerResponse?.last_name">{{error}}</p>
+                <input type="text" formControlName="lastName">
             </div>
             <div class="btn" >
-                <button class="normal-btn">Login</button>
+                <button class="normal-btn" (click)="updateUser()">Save</button>
             </div>
         </div>
         <div class="top">
@@ -31,21 +37,21 @@
             <div class="input-group">
                 <p>Old password:</p>
                 <p class="error"></p>
-                <input type="text">
+                <input type="text" formControlName="email">
             </div>
             <div class="input-group">
                 <p>New password:</p>
                 <p class="error"></p>
-                <input type="text">
+                <input type="text" formControlName="email">
             </div>
             <div class="input-group">
                 <p>Confirm password:</p>
                 <p class="error"></p>
-                <input type="text">
+                <input type="text" formControlName="email">
             </div>
             <div class="btn" >
-                <button class="normal-btn">Login</button>
+                <button class="normal-btn">Change</button>
             </div>
         </div>
-    </div>
+    </form>
 </div>

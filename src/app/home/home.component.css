@@ -1,14 +1,16 @@
 .container{
     padding: 40px 0 0;
-    text-align: center;
 }
 .container h1{
-    padding: 0 200px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
     font-size: 40px;
     text-shadow: 2px 2px 2px rgba(0,0,0,0.49);
 }
 .container p{
-    padding: 20px 400px;
+    max-width: 600px;
+    margin: 10px auto 0;  
     text-align: justify;
     text-align-last: center;
     color: var(--gray-lighter);
