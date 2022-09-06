@@ -13,4 +13,13 @@ export class ApiService {
       'password':password
     });
   }
+  register(data){
+    return this.http.post<loginResponse>(this.url+'login/register/',{
+      "username":data["username"],
+      "password":data["password"],
+      "email":data["email"]||"",
+      "first_name":data["first_name"],
+      "last_name":data["last_name"]
+    });
+  }
 }
