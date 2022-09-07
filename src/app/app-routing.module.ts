@@ -5,10 +5,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AccountComponent } from './account/account.component';
 import { LoginComponent } from './login/login.component';
 import { UserGuardGuard } from './user-guard.guard';
+import { TrailersComponent } from './trailers/trailers.component';
+
 const routes: Routes = [
   {path:'', component:HomeComponent},
   {path:'account', component:AccountComponent, canActivate : [UserGuardGuard]},
   {path:'login', component:LoginComponent },
+  {path:'trailers', component:TrailersComponent },
   {path: '**',redirectTo: ''},
 ];
 

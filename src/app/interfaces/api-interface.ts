@@ -21,3 +21,13 @@ export interface changePasswordResponse {
     oldP:         string[];
     newP:         string[];
 }
+
+export interface categoryResponse {
+    categories: Category[];
+    ok:         boolean;
+}
+
+export interface Category {
+    id:   number;
+    name: string;
+}

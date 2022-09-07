@@ -1,1 +1,32 @@
-<p>trailers works!</p>
+<div class="container">
+    <form class="search-container">
+        <div class="search-group">
+            <div class="item-group search">
+                <h2>Title:</h2>
+                <input type="text">
+            </div>
+            <div class="item-group">
+                <h4>Category:</h4>
+                <select [(ngModel)]="category" class="extra">
+                    <option [value]="-1" selected>Don't show</option>
+                    <option [value]="item.id" *ngFor="let item of categories">{{item.name}}</option>
+                </select>
+            </div>
+            <div class="item-group">
+                <h4>From:</h4>
+                <input type="date" class="extra">
+            </div>
+            <div class="item-group">
+                <h4>To:</h4>
+                <input type="date" class="extra">
+            </div>
+            <div class="item-group btn-container">
+                <button class="normal-btn">Search</button>
+            </div>
+        </div>
+    </form>
+    <div class="trailers-container">
+        <div class="trailers"></div>
+        <span>hola</span>
+    </div>
+</div>
