@@ -19,7 +19,7 @@
                 <input type="password" formControlName="password" (input)="confirmPassword()">
             </div>
             <div class="input-group" [ngClass]="isLogin ? 'hide' : ''">
-                <p>Confirm password:</p>
+                <p>Confirm password:</p> 
                 <p class="error" *ngIf="confirmedPassword == false">Password doesn't match</p>
                 <input type="password" formControlName="confirm" (input)="confirmPassword()">
             </div>

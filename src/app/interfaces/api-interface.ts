@@ -16,3 +16,8 @@ export interface getUserResponse {
     first_name:       string;
     last_name:        string;
 }
+export interface changePasswordResponse {
+    ok:               boolean;
+    oldP:         string[];
+    newP:         string[];
+}

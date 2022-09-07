@@ -36,22 +36,31 @@
         <div class="bottom">
             <div class="input-group">
                 <p>Old password:</p>
-                <p class="error"></p>
-                <input type="text" formControlName="email">
+                <p class="error" *ngFor="let error of passwordResponse?.oldP">{{error}}</p>
+                <input type="text" formControlName="oldP">
             </div>
             <div class="input-group">
                 <p>New password:</p>
-                <p class="error"></p>
-                <input type="text" formControlName="email">
+                <p class="error" *ngFor="let error of passwordResponse?.newP">{{error}}</p>
+                <input type="password" formControlName="newP" (input)="confirmPassword()">
             </div>
             <div class="input-group">
                 <p>Confirm password:</p>
-                <p class="error"></p>
-                <input type="text" formControlName="email">
+                <p class="error" *ngIf="confirmedPassword == false">Password doesn't match</p>
+                <input type="password" formControlName="confirm" (input)="confirmPassword()">
             </div>
-            <div class="btn" >
-                <button class="normal-btn">Change</button>
+            <div class="btn">
+                <button class="normal-btn" (click)="changePassword()">Change</button>
             </div>
         </div>
+        <div class="top">
+            <div><span>Log out</span></div>
+        </div>
+        <div class="bottom">
+            <div class="btn">
+                <button class="normal-btn" (click)="logOut()">Log out</button>
+            </div>
+        </div>
+        
     </form>
 </div>
