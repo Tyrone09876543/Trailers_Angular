@@ -31,3 +31,22 @@ export interface Category {
     id:   number;
     name: string;
 }
+
+export interface trailersResponse {
+    trailers: Trailer[];
+    context:  Context;
+    ok:       boolean;
+}
+
+export interface Context {
+    num_pages:    number;
+    page:         number;
+    has_previous: boolean;
+    has_next:     boolean;
+}
+
+export interface Trailer {
+    id:    number;
+    title: string;
+    image: string;
+}

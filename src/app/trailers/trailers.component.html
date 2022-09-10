@@ -1,32 +1,51 @@
 <div class="container">
-    <form class="search-container">
+    <form class="search-container" [formGroup]="form">
         <div class="search-group">
             <div class="item-group search">
                 <h2>Title:</h2>
-                <input type="text">
+                <input type="text" formControlName="title">
             </div>
             <div class="item-group">
                 <h4>Category:</h4>
-                <select [(ngModel)]="category" class="extra">
-                    <option [value]="-1" selected>Don't show</option>
+                <select formControlName="category" class="extra">
+                    <option [value]="-1" selected>-----------</option>
                     <option [value]="item.id" *ngFor="let item of categories">{{item.name}}</option>
                 </select>
             </div>
             <div class="item-group">
                 <h4>From:</h4>
-                <input type="date" class="extra">
+                <input type="date" class="extra" formControlName="from">
             </div>
             <div class="item-group">
                 <h4>To:</h4>
-                <input type="date" class="extra">
+                <input type="date" class="extra" formControlName="to">
             </div>
             <div class="item-group btn-container">
-                <button class="normal-btn">Search</button>
+                <button class="normal-btn" (click)="search()">Search</button>
             </div>
         </div>
     </form>
     <div class="trailers-container">
-        <div class="trailers"></div>
-        <span>hola</span>
+        <div class="trailers">
+            <div class="trailer-card" *ngFor="let trailer of trailersResponse?.trailers">
+                <img [src]="trailer.image">
+                <h4>{{trailer.title}}</h4>
+            </div>
+        </div>
     </div>
+    <span class="pagintarot-container">
+        
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page= trailers.previous_page_number ">previous</a>
+        
+
+        <span class="current">
+            Page  trailers.number  of  trailers.paginator.num_pages .
+        </span>
+
+        
+            <a href="?page= trailers.next_page_number ">next</a>
+            <a href="?page= trailers.paginator.num_pages ">last &raquo;</a>
+        
+    </span>
 </div>

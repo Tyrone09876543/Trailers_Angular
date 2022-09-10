@@ -42,9 +42,53 @@
 .trailers-container{
     display: flex;
     justify-content: center;
+    padding: 30px 0 0;
+}
+
+.trailers{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 50px;
+    column-gap: 70px;
+    max-width: 1000px;
+}
+.trailer-card{
+    width: 190px;
+    cursor: pointer;
+}
+.trailer-card h4{
+    width: 200px;
+    overflow: hidden;
+  position: relative;
+  display: inline-block;
+  margin: 0 5px 0 5px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.trailer-card img{
+    border: 5px solid white;
+    width: 200px;
+    height: 300px;
+    border-radius: 5px;
+}
+.pagintarot-container{
+    margin-top: 10px;
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.pagintarot-container .current,.pagintarot-container a{
+    margin: 0 5px;
+}
+.pagintarot-container a{
+    color: var(--green);
+    text-decoration: none;
 }
 @media (max-width: 670px) {
     .search-group{
         justify-content: space-around;
     }
 }
+

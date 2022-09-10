@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map } from 'rxjs/operators';
-import { loginResponse, getUserResponse, changePasswordResponse } from './interfaces/api-interface';
+import { loginResponse, getUserResponse, changePasswordResponse, categoryResponse, trailersResponse } from './interfaces/api-interface';
 
 @Injectable()
 export class ApiService {
@@ -41,5 +41,11 @@ export class ApiService {
       "oldP":oldP||"",
       "newP":newP||""
     }, { 'headers': headers });
+  }
+  getCategories(){
+    return this.http.get<categoryResponse>(this.url+'trailers/categories/',{});
+  }
+  trailersPreview(){
+    return this.http.get<trailersResponse>(this.url+'trailers/preview-trailers/',{});
   }
 }
