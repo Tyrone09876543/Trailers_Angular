@@ -66,25 +66,37 @@
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: all 0.3s ease;
 }
 .trailer-card img{
     border: 5px solid white;
     width: 200px;
     height: 300px;
     border-radius: 5px;
+    transition: all 0.3s ease;
 }
-.pagintarot-container{
+.trailer-card:hover img, .trailer-card:hover h4{
+    border-color: var(--green);
+    color: var(--green);
+}
+.pagintator-container{
     margin-top: 10px;
     display: flex; 
     justify-content: center;
     flex-wrap: wrap;
 }
-.pagintarot-container .current,.pagintarot-container a{
+.pagintator-container .current,.pagintator-container a{
     margin: 0 5px;
 }
-.pagintarot-container a{
+
+.pagintator-container a{
     color: var(--green);
     text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.pagintator-container a:hover{
+    color:#1F51FF;
 }
 @media (max-width: 670px) {
     .search-group{

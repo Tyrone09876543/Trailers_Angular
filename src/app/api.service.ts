@@ -45,7 +45,9 @@ export class ApiService {
   getCategories(){
     return this.http.get<categoryResponse>(this.url+'trailers/categories/',{});
   }
-  trailersPreview(){
-    return this.http.get<trailersResponse>(this.url+'trailers/preview-trailers/',{});
+  trailersPreview(data){
+    return this.http.get<trailersResponse>(this.url+'trailers/preview-trailers/',{
+      params:data
+    });
   }
 }

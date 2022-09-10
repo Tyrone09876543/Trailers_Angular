@@ -1,30 +1,30 @@
 <div class="container">
-    <form class="search-container" [formGroup]="form">
+    <div class="search-container">
         <div class="search-group">
             <div class="item-group search">
                 <h2>Title:</h2>
-                <input type="text" formControlName="title">
+                <input type="text" [(ngModel)]="trailersResponse?.context.title">
             </div>
             <div class="item-group">
                 <h4>Category:</h4>
-                <select formControlName="category" class="extra">
-                    <option [value]="-1" selected>-----------</option>
+                <select [(ngModel)]="trailersResponse?.context.category" class="extra">
+                    <option value="">-----------</option>
                     <option [value]="item.id" *ngFor="let item of categories">{{item.name}}</option>
                 </select>
             </div>
             <div class="item-group">
                 <h4>From:</h4>
-                <input type="date" class="extra" formControlName="from">
+                <input type="date" class="extra" [(ngModel)]="trailersResponse?.context.from">
             </div>
             <div class="item-group">
                 <h4>To:</h4>
-                <input type="date" class="extra" formControlName="to">
+                <input type="date" class="extra" [(ngModel)]="trailersResponse?.context.to">
             </div>
             <div class="item-group btn-container">
                 <button class="normal-btn" (click)="search()">Search</button>
             </div>
         </div>
-    </form>
+    </div>
     <div class="trailers-container">
         <div class="trailers">
             <div class="trailer-card" *ngFor="let trailer of trailersResponse?.trailers">
@@ -33,19 +33,17 @@
             </div>
         </div>
     </div>
-    <span class="pagintarot-container">
-        
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page= trailers.previous_page_number ">previous</a>
-        
-
-        <span class="current">
-            Page  trailers.number  of  trailers.paginator.num_pages .
+    <span class="pagintator-container">
+        <span *ngIf="trailersResponse?.context.has_previous">
+            <a (click)="first()">&laquo; first</a>
+            <a (click)="previous()">previous</a>
         </span>
-
-        
-            <a href="?page= trailers.next_page_number ">next</a>
-            <a href="?page= trailers.paginator.num_pages ">last &raquo;</a>
-        
+        <span class="current">
+            Page <span>{{trailersResponse?.context.page}}</span> of <span>{{trailersResponse?.context.num_pages}}</span>
+        </span>
+        <span *ngIf="trailersResponse?.context.has_next">
+            <a (click)="next()">next</a>
+            <a (click)="last()">last &raquo;</a>
+        </span>
     </span>
 </div>

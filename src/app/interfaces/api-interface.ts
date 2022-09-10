@@ -39,6 +39,10 @@ export interface trailersResponse {
 }
 
 export interface Context {
+    category:     string,
+    title:        string,
+    from:         string,
+    to:           string,
     num_pages:    number;
     page:         number;
     has_previous: boolean;
