@@ -2,7 +2,7 @@
 
 ------------------------------ Español ------------------------------
 
-Video: https://www.youtube.com/watch?v=QSVky1ARCss&ab_channel=YsaacAndujar
+Video: https://www.youtube.com/watch?v=A618vRaX_w4
 
 Creado en Angular
 
@@ -17,7 +17,7 @@ También puedes ver los detalles de una pelicula y ver su trailer en la misma pa
 
 ------------------------------ English ------------------------------
 
-Video: https://www.youtube.com/watch?v=QSVky1ARCss&ab_channel=YsaacAndujar
+Video: https://www.youtube.com/watch?v=A618vRaX_w4
 
 Built in Angular
 
