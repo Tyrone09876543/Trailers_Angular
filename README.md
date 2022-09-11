@@ -12,7 +12,7 @@ Este proyecto consta de un sistema de login de usuarios, una parte para explorar
 
 En la parte de explorar pleiculas puedes buscar en la base de datos buscando por titulo, categoria, estreno desde o hasta. 
 
-También puedes ver los detalles de una plicula y ver su trailer en la misma pagina.
+También puedes ver los detalles de una pelicula y ver su trailer en la misma pagina.
 
 
 ------------------------------ English ------------------------------
