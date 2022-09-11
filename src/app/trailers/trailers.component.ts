@@ -124,5 +124,7 @@ export class TrailersComponent implements OnInit {
     );
     this.getTrailers(data);
   }
-
+  details(id){
+    this.router.navigate(["/trailers/details",id])
+  }
 }

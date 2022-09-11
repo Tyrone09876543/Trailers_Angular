@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map } from 'rxjs/operators';
-import { loginResponse, getUserResponse, changePasswordResponse, categoryResponse, trailersResponse } from './interfaces/api-interface';
+import { loginResponse, getUserResponse, changePasswordResponse, categoryResponse, trailersResponse,trailerDetailsResonse } from './interfaces/api-interface';
 
 @Injectable()
 export class ApiService {
@@ -49,5 +49,8 @@ export class ApiService {
     return this.http.get<trailersResponse>(this.url+'trailers/preview-trailers/',{
       params:data
     });
+  }
+  trailerDetails(id){
+    return this.http.get<trailerDetailsResonse>(this.url+'trailers/get-trailer/'+id);
   }
 }

@@ -1,0 +1,45 @@
+footer{
+    background: var(--black);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    flex-direction: column;
+    bottom: 0;
+    text-align: center;
+
+}
+
+.social-list{
+    display:flex;  
+    list-style:none;
+    justify-content: center;
+
+}
+.social-list li{
+    font-size: 30px;
+    margin: 0px 25px;
+}
+footer p{
+    color: rgb(131, 131, 131);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 1px;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}
+.social-list li a{
+    color: rgb(131, 131, 131);
+    transition: all 0.3s ease;
+}
+
+.social-list li a:hover{
+    color: white;
+}
+@media (max-width: 905px) {
+    footer p{
+        position: static;
+    }
+}

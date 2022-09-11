@@ -54,3 +54,19 @@ export interface Trailer {
     title: string;
     image: string;
 }
+
+export interface trailerDetailsResonse {
+    trailer: trailerDetails;
+    ok:      boolean;
+}
+
+export interface trailerDetails {
+    id:           number;
+    category:     Category[];
+    title:        string;
+    release_date: Date;
+    description:  string;
+    cast:         string;
+    image:        string;
+    trailerUrl:   string;
+}

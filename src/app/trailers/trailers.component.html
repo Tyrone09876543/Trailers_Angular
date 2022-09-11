@@ -27,7 +27,7 @@
     </div>
     <div class="trailers-container">
         <div class="trailers">
-            <div class="trailer-card" *ngFor="let trailer of trailersResponse?.trailers">
+            <div class="trailer-card" *ngFor="let trailer of trailersResponse?.trailers" (click)="details(trailer.id)">
                 <img [src]="trailer.image">
                 <h4>{{trailer.title}}</h4>
             </div>

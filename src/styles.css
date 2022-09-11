@@ -17,6 +17,8 @@ body {
     color: white;
     background: var(--gray);
     min-height: 100vh;
+    position: relative;
+  padding-bottom: 100px;
 }
 
 .normal-btn {
@@ -40,6 +42,6 @@ body {
 }
 @media (max-width: 905px) {
   body{
-    padding-bottom: 0px;
+    padding-bottom: 150px;
   }
 }

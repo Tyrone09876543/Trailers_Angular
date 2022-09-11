@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms'
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
+import { SafePipe } from './safe-pipe';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormsModule } from '@angular/forms';
     TrailersComponent,
     DetailsComponent,
     AccountComponent,
-    LoginComponent
+    LoginComponent,
+    SafePipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
