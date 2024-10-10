@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map } from 'rxjs/operators';
 import { loginResponse, getUserResponse, changePasswordResponse, categoryResponse, trailersResponse,trailerDetailsResonse } from './interfaces/api-interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class ApiService {
-  url="http://127.0.0.1:8000/api/";
+  url=environment.apiUrl;
   constructor(private http:HttpClient) { }
   login(username, password){
     return this.http.post<loginResponse>(this.url+'login/login/',{

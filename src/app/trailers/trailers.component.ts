@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from "@angular/router";
 import { ApiService } from '../api.service';
-import { categoryResponse, trailersResponse } from '../interfaces/api-interface';
-import { FormGroup, FormControl } from '@angular/forms';
-import {Router, ActivatedRoute} from "@angular/router";
+import { trailersResponse } from '../interfaces/api-interface';
 @Component({
   selector: 'app-trailers',
   templateUrl: './trailers.component.html',
@@ -12,6 +10,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 export class TrailersComponent implements OnInit {
   categories =[];
   trailersResponse : trailersResponse;
+  loading: boolean
   constructor(private api:ApiService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -22,7 +21,6 @@ export class TrailersComponent implements OnInit {
       this.categories = res.categories;
     });
     const data = this.getQueryParams();
-    console.log(data);
     this.getTrailers(data);
   }
   getQueryParams(){
@@ -51,12 +49,15 @@ export class TrailersComponent implements OnInit {
     return data
   }
   getTrailers(data){
+    this.loading = true
     this.api.trailersPreview(data).subscribe(res=>{
-      console.log(res);
+      this.loading = false
       if (!res["ok"]){
         return;
       }
       this.trailersResponse = res;
+    }, ()=>{
+      this.loading= false
     });
   }
   search(){

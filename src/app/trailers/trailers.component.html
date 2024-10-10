@@ -25,25 +25,32 @@
             </div>
         </div>
     </div>
-    <div class="trailers-container">
-        <div class="trailers">
-            <div class="trailer-card" *ngFor="let trailer of trailersResponse?.trailers" (click)="details(trailer.id)">
-                <img [src]="trailer.image">
-                <h4>{{trailer.title}}</h4>
+    <div style="display: flex; justify-content: center; margin-top: 20px;" *ngIf="loading">
+        <h1>
+            Loading...
+        </h1>
+    </div>
+    <ng-container *ngIf="!loading">
+        <div class="trailers-container">
+            <div class="trailers">
+                <div class="trailer-card" *ngFor="let trailer of trailersResponse?.trailers" (click)="details(trailer.id)">
+                    <img [src]="trailer.image">
+                    <h4>{{trailer.title}}</h4>
+                </div>
             </div>
         </div>
-    </div>
-    <span class="pagintator-container">
-        <span *ngIf="trailersResponse?.context.has_previous">
-            <a (click)="first()">&laquo; first</a>
-            <a (click)="previous()">previous</a>
+        <span class="pagintator-container">
+            <span *ngIf="trailersResponse?.context.has_previous">
+                <a (click)="first()">&laquo; first</a>
+                <a (click)="previous()">previous</a>
+            </span>
+            <span class="current">
+                Page <span>{{trailersResponse?.context.page}}</span> of <span>{{trailersResponse?.context.num_pages}}</span>
+            </span>
+            <span *ngIf="trailersResponse?.context.has_next">
+                <a (click)="next()">next</a>
+                <a (click)="last()">last &raquo;</a>
+            </span>
         </span>
-        <span class="current">
-            Page <span>{{trailersResponse?.context.page}}</span> of <span>{{trailersResponse?.context.num_pages}}</span>
-        </span>
-        <span *ngIf="trailersResponse?.context.has_next">
-            <a (click)="next()">next</a>
-            <a (click)="last()">last &raquo;</a>
-        </span>
-    </span>
+    </ng-container>
 </div>
